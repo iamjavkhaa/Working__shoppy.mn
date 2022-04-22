@@ -39,7 +39,7 @@ document.addEventListener('click' , (a) => {
         document.querySelector('.fixed-parent').style.display = 'flex';
         document.querySelector('.fixed-parent').insertAdjacentHTML('afterbegin' , `
         <div class="fixed-header">
-            <a style="color: white" href="/shoppy.html">Shoppy.mn</a>  
+            <a style="color: white" href="./shoppy.html">Shoppy.mn</a>  
             <a style="color: white" href="./cart/cart.html">
                 <i onmouseover="showFixedCart()" onmouseleave="hideFixedCart()" class="fa-solid fa-cart-arrow-down">
                     <div id="fixed-cart" class="cart"></div>
@@ -264,12 +264,6 @@ function showCart() {
                 `)
             }
         )
-        
-
-        document.querySelector('.cart').insertAdjacentHTML('afterbegin' , `
-            <div>aaaaaaaaaaaaaaaaaaaa</div>
-        `)
-
     }
 }
 
