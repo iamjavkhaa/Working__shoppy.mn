@@ -150,7 +150,9 @@ main {
 
 /*  -------- product info end ---------- */
 
-
+.colorRed {
+    color: red;
+}
 
 /*     fixed start        */
 
@@ -167,7 +169,7 @@ main {
 
 .fa-door-open {
     position: absolute;
-    top: 20%;
+    top: 10%;
     font-size: large;
 }
 
@@ -269,7 +271,8 @@ main {
     flex-direction: column;
     align-items:center;
     background-color: white;
-    padding-top: 150px;
+    /* padding-top: 150px; */
+    padding-top: 9%;
     gap: 2rem;
 }
 
@@ -297,4 +300,106 @@ main {
 .return:hover {
     cursor: pointer;
     background-color: #1895e6;
+}
+
+
+.songoson-too-shirheg {
+    font-weight: 700;
+}
+
+
+/*       cart.html iin responsive is down here          */
+
+
+@media screen and (max-width: 450px ) {
+    .cart-empty-p {
+        font-size: 1rem !important ;
+    }
+    .cart-empty-img {
+        width: 200px !important ;
+        height: 100px !important ;
+    }
+}
+
+
+@media screen and (max-width: 950px ) {
+    .product-img {
+        width: unset;
+    }
+    .product {
+        flex-direction: column;
+    }
+    .product-info {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .product-info-2 {
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 460px) {
+    .row-right > input {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .row-right > input {
+        width: 186px;
+    }
+    .fixed-address {
+        padding: 10px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .row-right > input {
+        width: 100px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+
+    .fixed-payment {
+        width: 80%;
+    }
+
+    .has-two-children {
+        flex-direction: column;
+    }
+    .payment-row-right {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .fa-door-open {
+        top: 20px;
+        left: 20px;
+    }
+}
+
+
+@media screen and (max-width: 380px ) {
+    .fixed-payment {
+        padding: 5px 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .fa-circle-check {
+        font-size: 170px;
+    }
+    .order-success {
+        font-size: 17px;
+    }
 }

@@ -77,8 +77,8 @@ function ifCartEmpty() {
     if(localStorage.cart === undefined || localStorage.cart === '[]') {
         main.replaceChildren('')
         main.insertAdjacentHTML('afterbegin', `
-            <img style="width: 400px; height: 200px; margin-top: 169px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpo65oxvrHRHp7nt-NIqHStL4G3nQ1qYPbUP81__WkpluiYwX3I3W_jmlJN6Uv4WYpYDw&usqp=CAU">
-            <p style="text-align: center; font-size: 30px; margin-top: 40px; " > Таны сагс хоосон байна </p>
+            <img class="cart-empty-img" style="width: 400px; height: 200px; margin-top: 169px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpo65oxvrHRHp7nt-NIqHStL4G3nQ1qYPbUP81__WkpluiYwX3I3W_jmlJN6Uv4WYpYDw&usqp=CAU">
+            <p class="cart-empty-p" style="text-align: center; font-size: 30px; margin-top: 40px; " > Таны сагс хоосон байна </p>
         `)
         main.style.boxShadow = 'none'
     }  
@@ -113,7 +113,7 @@ function productSync() {
                         <div class="product-info-in">
                             <h3>${arg.productName}</h3>
                             <p style="font-size: 15px; " >${arg.productDetail}</p>  
-                            <p>Сонгосон тоо ширхэг: ${arg.count}</p>
+                            <p class="songoson-too-shirheg" >Сонгосон тоо ширхэг: ${arg.count}</p>
                             <p class="colorRed" >${arg.productPrice}</p>
                         </div>
         

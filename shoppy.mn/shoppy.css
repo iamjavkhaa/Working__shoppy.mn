@@ -366,3 +366,32 @@ input {
     display: flex;
     flex-direction: column;
 }
+
+/*                 main   responsive         */
+
+@media screen and (min-width: 850px) and (max-width: 1090px) {
+    .main {
+        grid-template-columns: 240px 240px 240px 
+    }
+}
+
+
+@media screen and (min-width: 560px) and (max-width: 849px) {
+    .main {
+        grid-template-columns: 240px 240px;
+    }
+}
+
+
+@media screen and (max-width: 559px) {
+    .main {
+        grid-template-columns: 240px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    header {
+        padding-right: 80px;
+    }
+}
+
