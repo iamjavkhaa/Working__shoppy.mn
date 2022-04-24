@@ -5,6 +5,15 @@ const main = document.querySelector('main');
 
 
 
+
+//    buy hesgees garah tovch
+
+function deleteFixedParent() {
+    document.querySelector('.fixed-parent').remove()
+}
+
+
+
 ///  howManySync  n  niit dung & niit baraanii hemjeeg update hiine
 function howManySync() {
 
@@ -171,50 +180,50 @@ document.addEventListener('click', (a) => {
 
 
 
-//               Худалдан авах  start
+// //               Худалдан авах  start
 
-document.addEventListener('click' , 
-    (arg) => {
-        if(arg.target.className === 'buy') {
-            let aguulah = JSON.parse(localStorage.aguulah)
-            let cart = JSON.parse(localStorage.cart)
+// document.addEventListener('click' , 
+//     (arg) => {
+//         if(arg.target.className === 'buy') {
+//             let aguulah = JSON.parse(localStorage.aguulah)
+//             let cart = JSON.parse(localStorage.cart)
 
-            // ------------------------------------------------------------------------------------------------------
-            let changed = []
+//             // ------------------------------------------------------------------------------------------------------
+//             let changed = []
             
-            aguulah.forEach(
-                (a) => {
-                    for(let i = 0; i < cart.length; i++) {
-                        if(a.productId == cart[i].productId) {
-                            changed.push({...a,  availableAmount:  +a.availableAmount - +cart[i].count  })
-                        }
-                    }
-                }
-            )
+//             aguulah.forEach(
+//                 (a) => {
+//                     for(let i = 0; i < cart.length; i++) {
+//                         if(a.productId == cart[i].productId) {
+//                             changed.push({...a,  availableAmount:  +a.availableAmount - +cart[i].count  })
+//                         }
+//                     }
+//                 }
+//             )
             
             
-            let i = 0;
-            let update = []
+//             let i = 0;
+//             let update = []
             
-            aguulah.forEach(
-                (arg) => {
-                    if(i < changed.length) {
-                        if(arg.productId == changed[i].productId) {
-                            update.push(changed[i])
-                            i++
-                            return
-                        }
-                    }
+//             aguulah.forEach(
+//                 (arg) => {
+//                     if(i < changed.length) {
+//                         if(arg.productId == changed[i].productId) {
+//                             update.push(changed[i])
+//                             i++
+//                             return
+//                         }
+//                     }
             
-                    update.push(arg)
-                }
-            )
+//                     update.push(arg)
+//                 }
+//             )
             
-            console.log(update)
+//             console.log(update)
 
-            localStorage.aguulah = JSON.stringify(update)
+//             localStorage.aguulah = JSON.stringify(update)
 
-            // ------------------------------------------------------------------------------------------------------
+//             // ------------------------------------------------------------------------------------------------------
 
 
 
@@ -226,18 +235,17 @@ document.addEventListener('click' ,
 
 
             
-            localStorage.removeItem('cart')
-            productSync()
-            howManySync()
-        }
-    }
-)
+//             localStorage.removeItem('cart')
+//             productSync()
+//             howManySync()
+//         }
+//     }
+// )
 
 //               Худалдан авах  end
 
 
 
-productSync()
 
 
 
@@ -257,3 +265,280 @@ productSync()
 // } )
 
 
+//  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+//               Худалдан авах  start
+
+
+
+document.addEventListener('click', 
+    (arg) => {
+        if(arg.target.className === 'buy') {
+            document.querySelector('body').insertAdjacentHTML('afterbegin' , 
+                `
+                <div class="fixed-parent">
+
+                <i class="fa-solid fa-door-open" onclick="deleteFixedParent()"  ></i>
+        
+        
+                <div class="fixed-address">
+        
+                    <div class="row">
+                        <div class="row-left">
+                            Street Address:
+                        </div>
+                        <div class="row-right">
+                            <input type="text" placeholder="Street Address">
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="row-left">
+                            City:
+                        </div>
+                        <div class="row-right">
+                            <input type="text" placeholder="City">
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="row-left">
+                            Country:
+                        </div>
+                        <div class="row-right">
+                            <input type="text" placeholder="Country">
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="row-left">
+                            State:
+                        </div>
+                        <div class="row-right">
+                            <input type="text" placeholder="State">
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="row-left">
+                            Zip Code:
+                        </div>
+                        <div class="row-right">
+                            <input type="text" placeholder="Zip Code">
+                        </div>
+                    </div>
+        
+        
+                    <div onclick="startPayment()" class="urgeljluuleh">
+                        Үргэлжлүүрэх
+                    </div>
+        
+                </div>
+            </div>
+                `
+            )
+
+
+        }
+    }
+)
+
+
+
+
+function startPayment() {
+    document.querySelector('.fixed-address').remove();
+    document.querySelector('.fixed-parent').insertAdjacentHTML('afterbegin' , 
+        `
+        <div class="fixed-payment">
+           
+           
+            <div class="payment-row payment-row-header">
+                Payment Details
+            </div>
+
+            <div class="payment-row">
+                Card Number
+                <input type="text" placeholder="Valid Card Number" >
+            </div>
+
+            <div class="payment-row has-two-children">
+                <div class="payment-row-left">
+                    Expiration Date
+                    <input type="text" placeholder="MM/YY" >
+                </div>
+
+                <div class="payment-row-right">
+                    CV Code
+                    <input type="text" placeholder="CVC" >
+                </div>
+            </div>
+
+            <div class="payment-row">
+                Coupon Code
+                <input type="text" placeholder="Coupon Code" >
+            </div>
+
+
+            <div onclick="completePayment()" class="payment-end">
+                Complete Payment
+            </div>
+
+        </div>
+        `
+    )
+}
+
+
+
+function completePayment() {
+    document.querySelector('.fa-door-open').remove();
+    document.querySelector('.fixed-payment').remove();
+    document.querySelector('.fixed-parent').insertAdjacentHTML('afterbegin', 
+        `
+        <div class="fixed-payment-completed">
+            
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div class="order-success">
+                Order Completed Successfully!
+            </div>
+
+            <div onclick="returnFunction()" class="return">
+                Return
+            </div>
+
+
+        </div>
+        `
+    )
+}
+
+
+function returnFunction() {
+    document.querySelector('.fixed-parent').remove();
+
+    
+    let aguulah = JSON.parse(localStorage.aguulah)
+    let cart = JSON.parse(localStorage.cart)
+
+    // ------------------------------------------------------------------------------------------------------
+    let changed = []
+    
+    aguulah.forEach(
+        (a) => {
+            for(let i = 0; i < cart.length; i++) {
+                if(a.productId == cart[i].productId) {
+                    changed.push({...a,  availableAmount:  +a.availableAmount - +cart[i].count  })
+                }
+            }
+        }
+    )
+    
+    
+    let i = 0;
+    let update = []
+    
+    aguulah.forEach(
+        (arg) => {
+            if(i < changed.length) {
+                if(arg.productId == changed[i].productId) {
+                    update.push(changed[i])
+                    i++
+                    return
+                }
+            }
+    
+            update.push(arg)
+        }
+    )
+    
+    console.log(update)
+
+    localStorage.aguulah = JSON.stringify(update)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('click' , 
+//     (arg) => {
+//         if(arg.target.className === 'buy') {
+//             let aguulah = JSON.parse(localStorage.aguulah)
+//             let cart = JSON.parse(localStorage.cart)
+
+//             // ------------------------------------------------------------------------------------------------------
+//             let changed = []
+            
+//             aguulah.forEach(
+//                 (a) => {
+//                     for(let i = 0; i < cart.length; i++) {
+//                         if(a.productId == cart[i].productId) {
+//                             changed.push({...a,  availableAmount:  +a.availableAmount - +cart[i].count  })
+//                         }
+//                     }
+//                 }
+//             )
+            
+            
+//             let i = 0;
+//             let update = []
+            
+//             aguulah.forEach(
+//                 (arg) => {
+//                     if(i < changed.length) {
+//                         if(arg.productId == changed[i].productId) {
+//                             update.push(changed[i])
+//                             i++
+//                             return
+//                         }
+//                     }
+            
+//                     update.push(arg)
+//                 }
+//             )
+            
+//             console.log(update)
+
+//             localStorage.aguulah = JSON.stringify(update)
+
+//             // ------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+            
+//             localStorage.removeItem('cart')
+//             productSync()
+//             howManySync()
+//         }
+//     }
+// )
+
+
+
+productSync()

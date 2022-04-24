@@ -14,12 +14,17 @@ html {
     font-family: 'Nunito', sans-serif;
 }
 
+::placeholder {
+    color: var(--payment-green)
+}
 
 :root {
     --purple: #4f3f68;
     --hover-red: #f56c73;
     --button-blue: #1895e6;
     --cart-font-size: 14px;
+    --form-green: #008272;
+    --payment-green: #65cd54;
 }
 
 
@@ -142,70 +147,124 @@ main {
 
 /*     fixed start        */
 
-.fixed-payment-parent {
+.fixed-parent {
     width: 100%;
     height: 100vh;
     position: fixed;
-    background-color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    z-index: 2;
 }
-
-.fixed-payment {
-    
-}   
-.fixed-payment > form {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-}
-.payment-form {
-    font-size: 31px;
-    background-color: white;
-    padding: 15px;
-}
-
-.payment-form > input {
-    width: 300px;
-    height: 36px;
-    padding: 0 10px;
-    border-radius: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.347);
-    outline: none;
-}
-
-#batal {
-    width: 100%;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: var(--purple);
-    border-radius: 5px;
-    text-align: center;
-    transition: .2s linear;
-}
-#batal:hover {
-    color: var(--hover-red);
-    cursor: pointer;
-}
-
-.colorRed {
-    color: red;
-}
-
 
 .fa-door-open {
     position: absolute;
-    top: 17%;
-    right: 17%;
-    transition: .2s linear;
-    color: red;
-    font-size: 20px;
+    top: 20%;
+    font-size: large;
 }
-.fa-door-open:hover {
-    cursor: pointer;
-    transform: scale(1.1, 1.1);
+
+
+.fixed-address {
+    width: 442px;
+    height: fit-content;
+    background-color: var(--form-green);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-right > input {
+    width: 244px;
+}
+
+.urgeljluuleh {
+    margin: auto;
+    padding: 10px;
+    background-color: var(--button-blue);
 }
 
 /*         Payment styles are Up here -->      */
 
+.fixed-payment {
+    width: 442px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 8px;
+    color: var(--payment-green);
+}
+
+.payment-row-header {
+    text-align: center;
+}
+
+.payment-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-row > input {
+    border: 1px solid var(--payment-green) ;
+}
+
+.has-two-children {
+    flex-direction: row;
+}
+.payment-row-left > input {
+    border: 1px solid var(--payment-green);    
+}
+.payment-row-right > input {
+    border: 1px solid var(--payment-green);    
+}
+
+
+.payment-end {
+    background-color: var(--payment-green);
+    text-align: center;
+    color: white;
+}
+
+
+/*         payment completed is down here */
+
+.fixed-payment-completed {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: white;
+    padding-top: 150px;
+    gap: 2rem;
+}
+
+.fa-circle-check {
+    font-size: 233px;
+    color: #408040;
+}
+
+.order-success {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.return {
+    margin-top: 10px;
+    background-color: #185793;
+    width: 220px;
+    padding: 7px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
