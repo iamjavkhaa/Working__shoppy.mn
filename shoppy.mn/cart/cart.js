@@ -235,9 +235,9 @@ document.addEventListener('click', (a) => {
 
 
             
-//             localStorage.removeItem('cart')
-//             productSync()
-//             howManySync()
+            // localStorage.removeItem('cart')
+            // productSync()
+            // howManySync()
 //         }
 //     }
 // )
@@ -460,6 +460,13 @@ function returnFunction() {
     console.log(update)
 
     localStorage.aguulah = JSON.stringify(update)
+
+
+
+    localStorage.removeItem('cart')
+    productSync()
+    howManySync()
+    location.href = '../shoppy.html'
 }
 
 
