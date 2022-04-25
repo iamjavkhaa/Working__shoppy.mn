@@ -237,6 +237,74 @@ function minusCount() {
 
 function showCart() {
     document.querySelector('.cart').style.display = 'flex';
+
+    let howManyInCart = 0
+    let niitDun = 0
+
+
+    howManyInCart = JSON.parse(localStorage.cart).length;
+
+
+    if(localStorage.cart !== undefined && localStorage.cart !== '[]' ) {
+
+
+        // +('46,200 ₮'.replaceAll( /[^0-9]/gi, ''))
+
+        let result = 0;
+
+        JSON.parse(localStorage.cart).forEach(
+            (arg) => {
+                result = result += (+(arg.productPrice.replaceAll( /[^0-9]/gi, '')) * +arg.count)
+
+                //  123,4234,5423,,,,,,,  comma nemdeg function is down here
+                // ------------------------------------------------------------------------------
+                let too = result.toString();
+                let arr = []
+
+                for(let i = 0; i < too.toString().length; i++ ) {
+                    arr.unshift(too.toString()[i])
+                }
+
+                let resultArr = []
+                let resultShine = ''
+                for( let i = 0; i < arr.length; i++) {
+                    resultShine += arr[i]
+                    resultArr.push(arr[i])
+                    if(resultShine.toString().replaceAll(/,/g, '').length % 3 == 0) {
+                        resultShine += ','
+                        resultArr.push(',')
+                    }
+                }
+
+                if(resultArr[resultArr.length - 1] === ',') {
+                    resultArr.pop()
+                }
+
+                resultArr.reverse()
+                resultArr = resultArr.join('')
+
+                // ------------------------------------------------------------------------------
+                //  123,4234,5423,,,,,,,  comma nemdeg function is up here
+
+                niitDun = resultArr + ' ₮'
+            }
+        )
+    } 
+    else {
+        howManyInCart = 0
+    }
+
+
+    document.querySelector('.cart').insertAdjacentHTML('afterbegin' , 
+        `
+            <div class="hover-cart-footer" > 
+                <h4>Нийт бараа: <span class="hover-cart-howMany" > ${howManyInCart} </span> </h4>
+                <h5 class="hover-cart-h5" >Нийт дүн: <span class="hover-cart-niitDun" > ${niitDun} </span> </h5>
+            </div>
+        `
+    )
+
+
     if(localStorage.cart != undefined) {
         JSON.parse(localStorage.cart).forEach(
             (arg) => {

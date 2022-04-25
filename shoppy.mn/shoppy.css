@@ -65,7 +65,7 @@ header, .fixed-header {
     /* height: 200px; */
     display: none;
     position: absolute;
-    top: 52px;
+    top: 53px;
     /* left: -274px; */
     right: 0;
     flex-direction: column;
@@ -395,3 +395,23 @@ input {
     }
 }
 
+.hover-cart-howMany {
+    font-size: small;
+    margin-left: 10px;
+    color: gray;
+}
+
+.hover-cart-niitDun {
+    font-size: small;
+    margin-left: 10px;
+    color: red;
+}
+
+.hover-cart-h5 {
+    margin-top: 14px;
+}
+
+.hover-cart-footer {
+    padding: 9px;
+    font-size: 14px;
+}
